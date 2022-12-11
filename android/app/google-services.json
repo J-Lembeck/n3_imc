@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "946554147913",
+    "project_id": "n3-imc",
+    "storage_bucket": "n3-imc.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:946554147913:android:d75c3a210e5dbae8bf1b98",
+        "android_client_info": {
+          "package_name": "com.example.n3_imc"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "946554147913-dliumisc8kqav9ule9c9pnel9jkk7se2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAOPBFHKihjLeJbhzF4zFlV1XW8vpCPSFU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "946554147913-dliumisc8kqav9ule9c9pnel9jkk7se2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
