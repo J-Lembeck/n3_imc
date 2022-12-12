@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:n3_imc/calculator_page.dart';
 import 'package:n3_imc/imc_service.dart';
 
 import 'imc.dart';
@@ -16,6 +17,16 @@ class ImcListState extends State<ImcList>{
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text("IMCs cadastrados"),),
+      floatingActionButton: FloatingActionButton(
+        child: const Icon(Icons.calculate),
+        onPressed: () {
+          Navigator.of(context).push(
+            MaterialPageRoute(
+              builder: (context) => CalcultorPage(),
+            ),
+          );
+        },
+      ),
       body: StreamBuilder(
         stream: ImcService.readImcs(),
         builder: (BuildContext context, AsyncSnapshot<List<Imc>> snapshot) {
@@ -38,10 +49,25 @@ class ImcListState extends State<ImcList>{
   Widget buildImc(BuildContext context, Imc imc){
     return ListTile(
       leading: CircleAvatar(
-        child: Text('${imc.result}'),
+        child: Text('${imc.result.toInt()}'),
       ),
       title: Text(imc.name),
       subtitle: Text('Altura: ${imc.height.toString()} cm / Peso: ${imc.weight.toString()} Kg'),
+      onLongPress: () {
+        showDialog(context: context, builder: (context)=>AlertDialog(
+          title: Text("Atenção!"),
+          content: Text("Deseja realmente excluir esse registro?"),
+          actions: [
+            TextButton(onPressed: () {
+              ImcService.deleteImc(imc);
+              Navigator.pop(context);
+            }, child: Text("Ok")),
+            TextButton(onPressed: () {
+              Navigator.pop(context);
+            }, child: Text("Cancelar"))
+          ],
+        ));
+      },
     );
   }
 }

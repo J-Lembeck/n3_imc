@@ -8,14 +8,14 @@ TextEditingController _controllerPeso = TextEditingController();
 TextEditingController _controllerAltura = TextEditingController();
 TextEditingController _controllerNome = TextEditingController();
 
-class HomePage extends StatefulWidget {
+class CalcultorPage extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
-    return HomePageState();
+    return CalcultorPageState();
   }
 }
 
-class HomePageState extends State<HomePage>{
+class CalcultorPageState extends State<CalcultorPage>{
   
   @override
   Widget build(BuildContext context) {
@@ -73,6 +73,12 @@ class HomePageState extends State<HomePage>{
                     );
 
                     ImcService.saveImc(newImc);
+
+                    _controllerPeso.clear();
+                    _controllerAltura.clear();
+                    _controllerNome.clear();
+
+                    Navigator.of(context).push(MaterialPageRoute(builder: (context) => ImcList()));
                   }
                 },
               child: Text("Gerar IMC"),

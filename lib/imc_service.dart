@@ -14,4 +14,9 @@ class ImcService {
     return FirebaseFirestore.instance.collection("imc").snapshots().map(
         (snapshot) => snapshot.docs.map((doc) => Imc.fromJson(doc.data())).toList());
   }
+
+  static Future<void> deleteImc(Imc imc) async {
+    final docImc = FirebaseFirestore.instance.collection('imc').doc(imc.id);
+    await docImc.delete();
+  }
 }

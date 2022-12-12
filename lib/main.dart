@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:n3_imc/home_page.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:n3_imc/imc_list_page.dart';
 
 Future<void> main() async{
   WidgetsFlutterBinding.ensureInitialized();
@@ -21,7 +21,7 @@ class calcIMC extends StatelessWidget {
         backgroundColor: Colors.black26,
         primarySwatch: Colors.purple,
       ),
-      home: HomePage(),
+      home: ImcList(),
     );
   }
 }
