@@ -35,10 +35,22 @@ class ImcListState extends State<ImcList>{
           }
           if(snapshot.hasData){
             final imcs = snapshot.data!;
-            return ListView.builder(
-              itemCount: imcs.length,
-              itemBuilder: (context, index) => buildImc(context, imcs[index]),
-            );
+
+            if (imcs.length > 0){
+              return ListView.builder(
+                itemCount: imcs.length,
+                itemBuilder: (context, index) => buildImc(context, imcs[index]),
+              );
+            }else{
+              return Center(
+                child: Text(
+                  "Nenhum registro encontrado.",
+                  style: TextStyle(
+                    fontSize: 24.0,
+                    color: Colors.grey,
+                ),),
+              );
+            }
           }
         return const Center(child: CircularProgressIndicator());
         },
